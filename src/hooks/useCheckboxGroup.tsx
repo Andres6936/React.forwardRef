@@ -1,13 +1,16 @@
-import React, {createRef, useMemo, useState} from "react";
+import React, {useMemo, useRef, useState} from "react";
 import {Checkbox} from "./Checkbox";
 
 export const useCheckboxGroup = (checkbox: string[]) => {
-    const refs: any[] = useMemo(() => Array(checkbox.length)
-        .fill(createRef()), [checkbox])
+    const refs: React.MutableRefObject<any[]> = useRef([])
 
-    const elements: any[] = useMemo(() => checkbox.map((name, index) =>
-            <Checkbox key={name} name={name} ref={refs[index]}/>)
-        , [checkbox])
+    const elements: any[] = useMemo(() =>
+        checkbox.map(name =>
+            <Checkbox
+                key={name}
+                name={name}
+                ref={(element) => refs.current.push(element)}/>
+        ), [checkbox])
 
     const [sports, setSports] = useState<boolean>(false);
     const [movies, setMovies] = useState<boolean>(false);
@@ -22,7 +25,7 @@ export const useCheckboxGroup = (checkbox: string[]) => {
     };
 
     const allCheckboxUnselected = () => {
-        console.log(refs.map(ref => ref.current.checked));
+        console.log(refs.current);
 
         const value = [sports, movies, finance].every((currentValue) => currentValue === false)
         return true
