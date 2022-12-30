@@ -32,8 +32,8 @@ export const useCheckboxGroup = (checkbox: string[]) => {
     const renderElements = () => (
         <div className="row">
             {
-                elements.map(element => (
-                    <div className="col-4">
+                elements.map((element, index) => (
+                    <div key={index} className="col-4">
                         {element}
                     </div>
                 ))
