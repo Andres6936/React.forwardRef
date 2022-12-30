@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 
-export const useCheckboxs = (checkbox: string[]) => {
+export const useCheckbox = (checkbox: string[]) => {
     const [sports, setSports] = useState<boolean>(false);
     const [movies, setMovies] = useState<boolean>(false);
     const [finance, setFinance] = useState<boolean>(false);

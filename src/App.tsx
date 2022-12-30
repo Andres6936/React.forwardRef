@@ -2,7 +2,7 @@ import {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {DummyService} from './services/DummyService';
-import {useCheckboxs} from "./hooks/useCheckboxs";
+import {useCheckbox} from "./hooks/useCheckbox";
 
 const TypesErrorMessage = Object.freeze({
     Empty_Message: 'Please write an message.',
@@ -10,7 +10,7 @@ const TypesErrorMessage = Object.freeze({
 });
 
 function App() {
-    const checkbox = useCheckboxs(['sport', 'movies', 'finance'])
+    const checkbox = useCheckbox(['sport', 'movies', 'finance'])
 
     const [errorMessage, setErrorMessage] = useState<string>('');
     const [messageIsInvalid, setMessageIsInvalid] = useState<boolean>(false);
