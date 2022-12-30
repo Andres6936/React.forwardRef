@@ -17,18 +17,13 @@ export const useCheckboxGroup = (checkbox: string[]) => {
     const [finance, setFinance] = useState<boolean>(false);
 
     const concatCategory = (message: string) => {
-        const category = [];
-        if (sports) category.push('[Sport]');
-        if (movies) category.push('[Movies]');
-        if (finance) category.push('[Finance]');
+        const category = refs.current.map(ref => ref.dataset.sdName)
         return category.join('') + ' - ' + message;
     };
 
     const allCheckboxUnselected = () => {
-        console.log(refs.current);
-
-        const value = [sports, movies, finance].every((currentValue) => currentValue === false)
-        return true
+        return refs.current.map(ref => ref.checked)
+            .every((currentValue) => currentValue === false)
     }
 
     const renderElements = () => (

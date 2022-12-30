@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useMemo, useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {DummyService} from './services/DummyService';
@@ -10,7 +10,7 @@ const TypesErrorMessage = Object.freeze({
 });
 
 function App() {
-    const checkboxGroup = useCheckboxGroup(['sport', 'movies', 'finance'])
+    const checkboxGroup = useCheckboxGroup(useMemo(() => ['sport', 'movies', 'finance'], []))
 
     const [errorMessage, setErrorMessage] = useState<string>('');
     const [messageIsInvalid, setMessageIsInvalid] = useState<boolean>(false);

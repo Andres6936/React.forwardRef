@@ -5,6 +5,10 @@ interface Props {
     name: string,
 }
 
+function capitalizeFirstLetter(value: string): string {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
 export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLInputElement>) => {
     const [isChecked, setIsChecked] = useState<boolean>(false)
 
@@ -12,7 +16,8 @@ export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLIn
         <Form.Check
             type="checkbox"
             ref={ref}
-            label={props.name}
+            data-sd-name={`[${capitalizeFirstLetter(props.name)}]`}
+            label={capitalizeFirstLetter(props.name)}
             checked={isChecked}
             onChange={({target}) => setIsChecked(target.checked)}
         />
