@@ -2,7 +2,7 @@ import {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {DummyService} from './services/DummyService';
-import {useCheckbox} from "./hooks/useCheckbox";
+import {useCheckboxGroup} from "./hooks/useCheckboxGroup";
 
 const TypesErrorMessage = Object.freeze({
     Empty_Message: 'Please write an message.',
@@ -10,7 +10,7 @@ const TypesErrorMessage = Object.freeze({
 });
 
 function App() {
-    const checkbox = useCheckbox(['sport', 'movies', 'finance'])
+    const checkboxGroup = useCheckboxGroup(['sport', 'movies', 'finance'])
 
     const [errorMessage, setErrorMessage] = useState<string>('');
     const [messageIsInvalid, setMessageIsInvalid] = useState<boolean>(false);
@@ -19,7 +19,7 @@ function App() {
 
     const onWriteMessage = async () => {
         // Verify that the user has been selected one a several categories
-        if (checkbox.allCheckboxUnselected()) {
+        if (checkboxGroup.allCheckboxUnselected()) {
             setMessageIsInvalid(true);
             setErrorMessage(TypesErrorMessage.Invalid_Categories);
             return;
@@ -34,7 +34,7 @@ function App() {
 
         setMessageIsInvalid(false);
         // Simulate request to API
-        const response = await DummyService.writeMessage(checkbox.concatCategory(message));
+        const response = await DummyService.writeMessage(checkboxGroup.concatCategory(message));
         setQueueMessages((prevState) => [response, ...prevState] as string[]);
     };
 
@@ -49,7 +49,7 @@ function App() {
         <div
             className="min-vh-100 d-flex justify-content-center align-items-center p-2 p-md-5 bg:gray-96">
             <div className="bg:gray-90 b:1px|solid|#CCC p-4 p-sm-5 r:1rem shadow w:26rem">
-                {checkbox.renderElements()}
+                {checkboxGroup.renderElements()}
 
                 <div className="row mt-2">
                     <Form.Text>Message</Form.Text>
