@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { DummyService } from './services/DummyService';
+import {DummyService} from './services/DummyService';
+import {useCheckboxs} from "./hooks/useCheckboxs";
 
 const TypesErrorMessage = Object.freeze({
   Empty_Message: 'Please write an message.',
@@ -9,43 +10,32 @@ const TypesErrorMessage = Object.freeze({
 });
 
 function App() {
-  const [sports, setSports] = useState<boolean>(false);
-  const [movies, setMovies] = useState<boolean>(false);
-  const [finance, setFinance] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>('');
-  const [messageIsInvalid, setMessageIsInvalid] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>('');
-  const [queueMessages, setQueueMessages] = useState<string[]>([]);
+    const checkbox = useCheckboxs(['sport', 'movies', 'finance'])
 
-  const onWriteMessage = async () => {
-    // Verfiy that the user has been selected one a several categories
-    if (
-      [sports, movies, finance].every((currentValue) => currentValue === false)
-    ) {
-      setMessageIsInvalid(true);
-      setErrorMessage(TypesErrorMessage.Invalid_Categories);
-      return;
-    }
+    const [errorMessage, setErrorMessage] = useState<string>('');
+    const [messageIsInvalid, setMessageIsInvalid] = useState<boolean>(false);
+    const [message, setMessage] = useState<string>('');
+    const [queueMessages, setQueueMessages] = useState<string[]>([]);
 
-    // Verify that the user has written a message valid (Not empty)
-    if (message === '') {
-      setMessageIsInvalid(true);
-      setErrorMessage(TypesErrorMessage.Empty_Message);
-      return;
+    const onWriteMessage = async () => {
+        // Verify that the user has been selected one a several categories
+        if (checkbox.allCheckboxUnselected()) {
+            setMessageIsInvalid(true);
+            setErrorMessage(TypesErrorMessage.Invalid_Categories);
+            return;
+        }
+
+        // Verify that the user has written a message valid (Not empty)
+        if (message === '') {
+            setMessageIsInvalid(true);
+            setErrorMessage(TypesErrorMessage.Empty_Message);
+            return;
     }
 
     setMessageIsInvalid(false);
     // Simulate request to API
-    const response = await DummyService.writeMessage(concatCategory(message));
+        const response = await DummyService.writeMessage(checkbox.concatCategory(message));
     setQueueMessages((prevState) => [response, ...prevState] as string[]);
-  };
-
-  const concatCategory = (message: string) => {
-    const category = [];
-    if (sports) category.push('[Sport]');
-    if (movies) category.push('[Movies]');
-    if (finance) category.push('[Finance]');
-    return category.join('') + ' - ' + message;
   };
 
   const formatHistory = () => {
@@ -58,32 +48,7 @@ function App() {
   return (
     <div className="min-vh-100 d-flex justify-content-center align-items-center p-2 p-md-5 bg:gray-96">
       <div className="bg:gray-90 b:1px|solid|#CCC p-4 p-sm-5 r:1rem shadow w:26rem">
-        <div className="row">
-          <div className="col-4">
-            <Form.Check
-              type="checkbox"
-              label="Sports"
-              checked={sports}
-              onChange={({ target }) => setSports(target.checked)}
-            />
-          </div>
-          <div className="col-4">
-            <Form.Check
-              type="checkbox"
-              label="Finance"
-              checked={finance}
-              onChange={({ target }) => setFinance(target.checked)}
-            />
-          </div>
-          <div className="col-4">
-            <Form.Check
-              type="checkbox"
-              label="Movies"
-              checked={movies}
-              onChange={({ target }) => setMovies(target.checked)}
-            />
-          </div>
-        </div>
+          {checkbox.renderElements()}
 
         <div className="row mt-2">
           <Form.Text>Message</Form.Text>
@@ -121,8 +86,8 @@ function App() {
         </div>
 
         <div className="row">
-          <Form.Text>Log History</Form.Text>
-          <Form.Control as="textarea" rows={5} value={formatHistory()} />
+            <Form.Text>Log History</Form.Text>
+            <Form.Control as="textarea" rows={5} value={formatHistory()} readOnly={true}/>
         </div>
       </div>
     </div>
