@@ -1,4 +1,4 @@
-import React, {useMemo, useRef, useState} from "react";
+import React, {useMemo, useRef} from "react";
 import {Checkbox} from "./Checkbox";
 
 export const useCheckboxGroup = (checkbox: string[]) => {
@@ -13,10 +13,6 @@ export const useCheckboxGroup = (checkbox: string[]) => {
                 ref={(element) => refs.current.push(element)}/>
         )
     }, [checkbox])
-
-    const [sports, setSports] = useState<boolean>(false);
-    const [movies, setMovies] = useState<boolean>(false);
-    const [finance, setFinance] = useState<boolean>(false);
 
     const concatCategory = (message: string) => {
         const category = refs.current
