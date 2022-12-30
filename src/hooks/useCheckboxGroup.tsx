@@ -1,7 +1,14 @@
-import React, {useState} from "react";
-import Form from "react-bootstrap/Form";
+import React, {createRef, useMemo, useState} from "react";
+import {Checkbox} from "./Checkbox";
 
 export const useCheckboxGroup = (checkbox: string[]) => {
+    const refs: any[] = useMemo(() => Array(checkbox.length)
+        .fill(createRef()), [checkbox])
+
+    const elements: any[] = useMemo(() => checkbox.map((name, index) =>
+            <Checkbox key={name} name={name} ref={refs[index]}/>)
+        , [checkbox])
+
     const [sports, setSports] = useState<boolean>(false);
     const [movies, setMovies] = useState<boolean>(false);
     const [finance, setFinance] = useState<boolean>(false);
@@ -14,35 +21,22 @@ export const useCheckboxGroup = (checkbox: string[]) => {
         return category.join('') + ' - ' + message;
     };
 
-    const allCheckboxUnselected = () => [sports, movies, finance]
-        .every((currentValue) => currentValue === false)
+    const allCheckboxUnselected = () => {
+        console.log(refs.map(ref => ref.current.checked));
+
+        const value = [sports, movies, finance].every((currentValue) => currentValue === false)
+        return true
+    }
 
     const renderElements = () => (
         <div className="row">
-            <div className="col-4">
-                <Form.Check
-                    type="checkbox"
-                    label="Sports"
-                    checked={sports}
-                    onChange={({target}) => setSports(target.checked)}
-                />
-            </div>
-            <div className="col-4">
-                <Form.Check
-                    type="checkbox"
-                    label="Finance"
-                    checked={finance}
-                    onChange={({target}) => setFinance(target.checked)}
-                />
-            </div>
-            <div className="col-4">
-                <Form.Check
-                    type="checkbox"
-                    label="Movies"
-                    checked={movies}
-                    onChange={({target}) => setMovies(target.checked)}
-                />
-            </div>
+            {
+                elements.map(element => (
+                    <div className="col-4">
+                        {element}
+                    </div>
+                ))
+            }
         </div>
     )
 
