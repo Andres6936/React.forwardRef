@@ -56,8 +56,8 @@ function App() {
   };
 
   return (
-    <div className="min-vh-100 d-flex justify-content-center align-items-center p-5 bg:gray-96">
-      <div className="bg:gray-90 b:1px|solid|#CCC p-5 r:1rem shadow">
+    <div className="min-vh-100 d-flex justify-content-center align-items-center p-2 p-md-5 bg:gray-96">
+      <div className="bg:gray-90 b:1px|solid|#CCC p-4 p-sm-5 r:1rem shadow w:26rem">
         <div className="row">
           <div className="col-4">
             <Form.Check
