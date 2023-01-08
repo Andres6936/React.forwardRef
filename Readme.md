@@ -6,6 +6,8 @@ For added more checkbox in the interface, modified this line:
 useCheckboxGroup(useMemo(() => ['sport', 'movies', 'finance'], []))
 ```
 
+<img alt="Start Image" src="./docs/Start.png" width="464">
+
 ![Start](./docs/Start.png)
 
 Req. 1: Verify that a category is selected.
