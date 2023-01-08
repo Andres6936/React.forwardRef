@@ -6,17 +6,16 @@ For added more checkbox in the interface, modified this line:
 useCheckboxGroup(useMemo(() => ['sport', 'movies', 'finance'], []))
 ```
 
-<img alt="Start Image" src="./docs/Start.png" width="464">
+<img alt="Start Image" src="./docs/Start.png" width="50%">
 
-![Start](./docs/Start.png)
 
 Req. 1: Verify that a category is selected.
 
-![Middle](./docs/Middle.png)
+<img alt="Middle Image" src="./docs/Middle.png" width="50%">
 
 Req. 2: Verify that the user write a message.
 
-![End](./docs/End.png)
+<img alt="End Image" src="./docs/End.png" width="50%">
 
 ### How to start
 
