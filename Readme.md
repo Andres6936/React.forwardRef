@@ -6,8 +6,6 @@ It makes use of React hooks and references to create components dynamically.
 
 Initially 3 Checkboxes are declared in the code, but by simply editing the line mentioned below, an infinite number of Checkboxes can be added.
 
-Translated with www.DeepL.com/Translator (free version)
-
 For added more checkbox in the interface, modified this line:
 
 ```javascript
