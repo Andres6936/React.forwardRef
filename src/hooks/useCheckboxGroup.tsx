@@ -22,14 +22,14 @@ export const useCheckboxGroup = (checkbox: string[]) => {
         return category.join('') + ' - ' + message;
     };
 
-    const allCheckboxUnselected = () => {
+    const everyUnselected = () => {
         return refs.current
             .filter(ref => ref)
             .map(ref => ref.checked)
             .every((currentValue) => currentValue === false)
     }
 
-    const renderElements = () => (
+    const draw = () => (
         <div className="row">
             {
                 elements.map((element, index) => (
@@ -43,7 +43,7 @@ export const useCheckboxGroup = (checkbox: string[]) => {
 
     return {
         concatCategory,
-        allCheckboxUnselected,
-        renderElements,
+        everyUnselected,
+        draw,
     }
 }

@@ -17,9 +17,14 @@ function App() {
     const [message, setMessage] = useState<string>('');
     const [queueMessages, setQueueMessages] = useState<string[]>([]);
 
+    const onClearMessage = () => {
+        setMessage('')
+        setMessageIsInvalid(false)
+    }
+
     const onWriteMessage = async () => {
         // Verify that the user has been selected one a several categories
-        if (checkboxGroup.allCheckboxUnselected()) {
+        if (checkboxGroup.everyUnselected()) {
             setMessageIsInvalid(true);
             setErrorMessage(TypesErrorMessage.Invalid_Categories);
             return;
@@ -49,7 +54,7 @@ function App() {
         <div
             className="min-vh-100 d-flex justify-content-center align-items-center p-2 p-md-5 bg:gray-96">
             <div className="bg:gray-90 b:1px|solid|#CCC p-4 p-sm-5 r:1rem shadow w:26rem">
-                {checkboxGroup.renderElements()}
+                {checkboxGroup.draw()}
 
                 <div className="row mt-2">
                     <Form.Text>Message</Form.Text>
@@ -70,7 +75,7 @@ function App() {
                         <Button
                             className="col-12"
                             variant="danger"
-                            onClick={() => setMessage('')}
+                            onClick={onClearMessage}
                         >
                             Clear
                         </Button>
