@@ -1,5 +1,5 @@
 import React, {useMemo, useRef} from "react";
-import {Checkbox} from "./Checkbox";
+import {Checkbox} from "../components/Checkbox";
 
 export const useCheckboxGroup = (checkbox: string[]) => {
     const refs: React.MutableRefObject<any[]> = useRef([])
