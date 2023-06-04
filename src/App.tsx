@@ -52,12 +52,12 @@ function App() {
 
     return (
         <div
-            className="min-vh-100 d-flex justify-content-center align-items-center p-2 p-md-5 bg:gray-96">
-            <div className="bg:gray-90 b:1px|solid|#CCC p-4 p-sm-5 r:1rem shadow w:26rem">
+            className="min-vh-100 d-flex justify-content-center align-items-center p-2 p-md-5 bg:gray-96 bg:gray-46@dark">
+            <div className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p-4 p-sm-5 r:1rem shadow w:26rem">
                 {checkboxGroup.draw()}
 
                 <div className="row mt-2">
-                    <Form.Text>Message</Form.Text>
+                    <Form.Text className={"color:white@dark"}>Message</Form.Text>
                     <Form.Control
                         as="textarea"
                         rows={1}
@@ -92,7 +92,7 @@ function App() {
                 </div>
 
                 <div className="row">
-                    <Form.Text>Log History</Form.Text>
+                    <Form.Text className={"color:white@dark"}>Log History</Form.Text>
                     <Form.Control as="textarea" rows={5} value={formatHistory()}
                                   readOnly={true}/>
                 </div>

@@ -14,6 +14,7 @@ export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLIn
 
     return (
         <Form.Check
+            className={"color:white@dark"}
             type="checkbox"
             ref={ref}
             data-sd-name={`[${capitalizeFirstLetter(props.name)}]`}
