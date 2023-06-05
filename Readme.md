@@ -12,19 +12,35 @@ For added more checkbox in the interface, modified this line:
 useCheckboxGroup(useMemo(() => ['sport', 'movies', 'finance'], []))
 ```
 
-<img style="border-radius: 1em" alt="Start Image" src="./docs/Start.png" width="50%">
+#### Requeriments
 
+- Req. 1: Verify that a category is selected.
+- Req. 2: Verify that the user write a message.
 
-Req. 1: Verify that a category is selected.
+#### Screenshots
 
-<img style="border-radius: 1em" alt="Middle Image" src="./docs/Middle.png" width="50%">
+<p align="center" float="left">
+  <img style="border-radius: 1em" alt="Start Image" src="./docs/Start.png" width="58%">
+  <img style="border-radius: 1em" alt="Middle Image" src="./docs/Middle.png" width="48%">
+  <img style="border-radius: 1em" alt="End Image" src="./docs/End.png" width="48%">
+</p>
 
-Req. 2: Verify that the user write a message.
-
-<img style="border-radius: 1em" alt="End Image" src="./docs/End.png" width="50%">
 
 ### How to start
 
+You will need to have Node.js and npm installed on your machine. Once you have those installed, you can follow these steps:
+
+1. Open a terminal window and navigate to the directory where the project is located.
+2. Run the following command to install all of the project's dependencies:
+
 ````shell
-npm install & npm run dev
+npm install
 ````
+
+3. Once the dependencies have been installed, you can start the project by running the following command:
+
+````shell
+npm run dev
+````
+
+This will start a development server on your local machine.
