@@ -55,7 +55,7 @@ function App() {
             <ChangeTheme/>
 
             <div
-                className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem shadow w:21rem">
+                className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:21rem">
                 {checkboxGroup.draw()}
 
                 <div className="flex flex:col mt:1em">
