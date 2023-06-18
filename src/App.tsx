@@ -76,12 +76,12 @@ function App() {
 
                 <div className="flex flex:row my-2">
                     <button
-                        className="flex flex:1 align-items:center justify-content:center rl:1.5em bg:red color:white"
+                        className="flex flex:1 align-items:center justify-content:center rl:1.5em bg:red bg:red/.9:hover color:white"
                         onClick={onClearMessage}>
                         Clear
                     </button>
                     <button
-                        className="flex flex:1 align-items:center justify-content:center rr:1.5em bg:blue color:white"
+                        className="flex flex:1 align-items:center justify-content:center rr:1.5em bg:blue bg:blue/.9:hover color:white"
                         onClick={onWriteMessage}>
                         Send
                     </button>
