@@ -1,6 +1,4 @@
 import {useMemo, useState} from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import {DummyService} from './services/DummyService';
 import {useCheckboxGroup} from "./hooks/useCheckboxGroup";
 import {ChangeTheme} from "./components/ChangeTheme";
@@ -61,17 +59,16 @@ function App() {
                 {checkboxGroup.draw()}
 
                 <div className="row mt-2">
-                    <Form.Text className={"color:white@dark"}>Message</Form.Text>
-                    <Form.Control
-                        as="textarea"
+                    <label className={"color:white@dark mb:0.2em"}>Message</label>
+                    <textarea
+                        className={"b:1px|solid|#CCC r:1.5em mb:0.5em"}
                         rows={1}
                         value={message}
-                        isInvalid={messageIsInvalid}
                         onChange={({target}) => setMessage(target.value)}
                     />
-                    <Form.Control.Feedback type="invalid">
+                    <p className={messageIsInvalid ? "show" : "hidden"}>
                         {errorMessage}
-                    </Form.Control.Feedback>
+                    </p>
                 </div>
 
                 <div className="flex flex:row my-2">
@@ -88,9 +85,9 @@ function App() {
                 </div>
 
                 <div className="row">
-                    <Form.Text className={"color:white@dark"}>Log History</Form.Text>
-                    <Form.Control as="textarea" rows={5} value={formatHistory()}
-                                  readOnly={true}/>
+                    <label className={"color:white@dark mb:0.2em"}>Log History</label>
+                    <textarea className={"b:1px|solid|#CCC r:1em"} rows={5} value={formatHistory()}
+                              readOnly={true}/>
                 </div>
             </div>
         </div>
