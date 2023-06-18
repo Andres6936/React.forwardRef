@@ -1,5 +1,4 @@
 import React, {ForwardedRef, useState} from "react";
-import Form from "react-bootstrap/Form";
 
 interface Props {
     name: string,
@@ -13,14 +12,16 @@ export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLIn
     const [isChecked, setIsChecked] = useState<boolean>(false)
 
     return (
-        <Form.Check
-            className={"color:white@dark"}
-            type="checkbox"
-            ref={ref}
-            data-sd-name={`[${capitalizeFirstLetter(props.name)}]`}
-            label={capitalizeFirstLetter(props.name)}
-            checked={isChecked}
-            onChange={({target}) => setIsChecked(target.checked)}
-        />
+        <div className={"flex gap:0.5em flex:row align-items:center"}>
+            <input
+                className={"r:50% color:white@dark"}
+                type="checkbox"
+                ref={ref}
+                data-sd-name={`[${capitalizeFirstLetter(props.name)}]`}
+                checked={isChecked}
+                onChange={({target}) => setIsChecked(target.checked)}
+            />
+            <label className={"color:white@dark m:0 p:0"}>{capitalizeFirstLetter(props.name)}</label>
+        </div>
     )
 })

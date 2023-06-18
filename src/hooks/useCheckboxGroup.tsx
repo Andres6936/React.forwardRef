@@ -1,10 +1,10 @@
-import React, {useMemo, useRef} from "react";
+import React, {ReactNode, useMemo, useRef} from "react";
 import {Checkbox} from "../components/Checkbox";
 
 export const useCheckboxGroup = (checkbox: string[]) => {
-    const refs: React.MutableRefObject<any[]> = useRef([])
+    const refs: React.MutableRefObject<(HTMLInputElement | null)[]> = useRef([])
 
-    const elements: any[] = useMemo(() => {
+    const elements: ReactNode[] = useMemo(() => {
         refs.current = []
         return checkbox.map(name =>
             <Checkbox
@@ -17,15 +17,15 @@ export const useCheckboxGroup = (checkbox: string[]) => {
     const concatCategory = (message: string) => {
         const category = refs.current
             .filter(ref => ref)
-            .filter(ref => ref.checked)
-            .map(ref => ref.dataset.sdName)
+            .filter(ref => ref?.checked)
+            .map(ref => ref?.dataset.sdName)
         return category.join('') + ' - ' + message;
     };
 
     const everyUnselected = () => {
         return refs.current
             .filter(ref => ref)
-            .map(ref => ref.checked)
+            .map(ref => ref?.checked)
             .every((currentValue) => currentValue === false)
     }
 
