@@ -30,10 +30,10 @@ export const useCheckboxGroup = (checkbox: string[]) => {
     }
 
     const draw = () => (
-        <div className="row">
+        <div className="flex flex:row gap:2em align-items:center justify-content:space-around">
             {
                 elements.map((element, index) => (
-                    <div key={index} className="col-4">
+                    <div key={index}>
                         {element}
                     </div>
                 ))

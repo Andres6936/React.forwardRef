@@ -51,18 +51,17 @@ function App() {
 
     return (
         <div
-            className="min-vh-100 d-flex justify-content-center align-items-center p-2 p-md-5 bg:gray-96 bg:gray-46@dark">
+            className="min-h:100vh flex justify-content:center align-items:center p:2em bg:gray-96 bg:gray-46@dark">
             <ChangeTheme/>
 
             <div
-                className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p-4 p-sm-5 r:1rem shadow w:26rem">
+                className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem shadow w:21rem">
                 {checkboxGroup.draw()}
 
-                <div className="row mt-2">
+                <div className="flex flex:col mt:1em">
                     <label className={"color:white@dark mb:0.2em"}>Message</label>
-                    <textarea
-                        className={"b:1px|solid|#CCC r:1.5em mb:0.5em"}
-                        rows={1}
+                    <input
+                        className={"b:1px|solid|#CCC r:1.5em mb:0.5em py:0.5em"}
                         value={message}
                         onChange={({target}) => setMessage(target.value)}
                     />
@@ -71,20 +70,20 @@ function App() {
                     </p>
                 </div>
 
-                <div className="flex flex:row my-2">
+                <div className="flex flex:row my:1em">
                     <button
-                        className="flex flex:1 align-items:center justify-content:center rl:1.5em bg:red bg:red/.9:hover color:white"
+                        className="flex flex:1 align-items:center justify-content:center b:none py:0.5em font:bold font-size:1em rl:1.5em bg:red bg:red/.9:hover color:white"
                         onClick={onClearMessage}>
                         Clear
                     </button>
                     <button
-                        className="flex flex:1 align-items:center justify-content:center rr:1.5em bg:blue bg:blue/.9:hover color:white"
+                        className="flex flex:1 align-items:center justify-content:center b:none py:0.5em font:bold font-size:1em rr:1.5em bg:blue bg:blue/.9:hover color:white"
                         onClick={onWriteMessage}>
                         Send
                     </button>
                 </div>
 
-                <div className="row">
+                <div className="flex flex:col">
                     <label className={"color:white@dark mb:0.2em"}>Log History</label>
                     <textarea className={"b:1px|solid|#CCC r:1em"} rows={5} value={formatHistory()}
                               readOnly={true}/>

@@ -12,7 +12,7 @@ export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLIn
     const [isChecked, setIsChecked] = useState<boolean>(false)
 
     return (
-        <div className={"flex gap:0.5em flex:row align-items:center"}>
+        <div className={"flex gap:0.3em flex:row align-items:center"}>
             <input
                 className={"r:50% color:white@dark"}
                 type="checkbox"
