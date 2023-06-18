@@ -61,11 +61,11 @@ function App() {
                 <div className="flex flex:col mt:1em">
                     <label className={"color:white@dark mb:0.2em"}>Message</label>
                     <input
-                        className={"b:1px|solid|#CCC r:1.5em mb:0.5em py:0.5em"}
+                        className={"b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em px:1em py:0.5em bg:gray-50@dark"}
                         value={message}
                         onChange={({target}) => setMessage(target.value)}
                     />
-                    <p className={messageIsInvalid ? "show" : "hidden"}>
+                    <p className={messageIsInvalid ? "show m:0 p:0 color:red color:gold-80@dark" : "hidden"}>
                         {errorMessage}
                     </p>
                 </div>
@@ -85,8 +85,11 @@ function App() {
 
                 <div className="flex flex:col">
                     <label className={"color:white@dark mb:0.2em"}>Log History</label>
-                    <textarea className={"b:1px|solid|#CCC r:1em"} rows={5} value={formatHistory()}
-                              readOnly={true}/>
+                    <textarea
+                        className={"b:1px|solid|#CCC b:1px|solid|black@dark r:1em bg:gray-50@dark"}
+                        rows={5}
+                        value={formatHistory()}
+                        readOnly={true}/>
                 </div>
             </div>
         </div>
