@@ -20,9 +20,10 @@ useCheckboxGroup(useMemo(() => ['sport', 'movies', 'finance'], []))
 #### Screenshots
 
 <p align="center" float="left">
-  <img style="border-radius: 1em" alt="Start Image" src="./docs/Start.png" width="58%">
+  <img style="border-radius: 1em" alt="Start Image" src="./docs/Start.png" width="48%">
   <img style="border-radius: 1em" alt="Middle Image" src="./docs/Middle.png" width="48%">
   <img style="border-radius: 1em" alt="End Image" src="./docs/End.png" width="48%">
+  <img style="border-radius: 1em" alt="Start Image" src="./docs/Message.png" width="48%">
 </p>
 
 
