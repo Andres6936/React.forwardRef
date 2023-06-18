@@ -56,7 +56,8 @@ function App() {
             className="min-vh-100 d-flex justify-content-center align-items-center p-2 p-md-5 bg:gray-96 bg:gray-46@dark">
             <ChangeTheme/>
 
-            <div className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p-4 p-sm-5 r:1rem shadow w:26rem">
+            <div
+                className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p-4 p-sm-5 r:1rem shadow w:26rem">
                 {checkboxGroup.draw()}
 
                 <div className="row mt-2">
@@ -73,25 +74,17 @@ function App() {
                     </Form.Control.Feedback>
                 </div>
 
-                <div className="row my-2">
-                    <div className="col-6">
-                        <Button
-                            className="col-12"
-                            variant="danger"
-                            onClick={onClearMessage}
-                        >
-                            Clear
-                        </Button>
-                    </div>
-                    <div className="col-6">
-                        <Button
-                            className="col-12"
-                            variant="primary"
-                            onClick={onWriteMessage}
-                        >
-                            Send
-                        </Button>
-                    </div>
+                <div className="flex flex:row my-2">
+                    <button
+                        className="flex flex:1 align-items:center justify-content:center rl:1.5em bg:red color:white"
+                        onClick={onClearMessage}>
+                        Clear
+                    </button>
+                    <button
+                        className="flex flex:1 align-items:center justify-content:center rr:1.5em bg:blue color:white"
+                        onClick={onWriteMessage}>
+                        Send
+                    </button>
                 </div>
 
                 <div className="row">
