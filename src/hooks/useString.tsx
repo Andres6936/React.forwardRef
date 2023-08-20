@@ -3,7 +3,12 @@ export function useString() {
         return value.charAt(0).toUpperCase() + value.slice(1);
     }
 
+    const getLabelUsing = (value: string) => {
+        return 'Label-' + value.replace(' ', '')
+    }
+
     return {
-        capitalizeFirstLetter
+        capitalizeFirstLetter,
+        getLabelUsing,
     }
 }

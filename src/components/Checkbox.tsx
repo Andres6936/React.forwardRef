@@ -1,18 +1,16 @@
 import React, {ForwardedRef, useMemo, useState} from "react";
+import {useString} from "../hooks/useString";
 
 interface Props {
     name: string,
 }
 
-function capitalizeFirstLetter(value: string): string {
-    return value.charAt(0).toUpperCase() + value.slice(1);
-}
-
 export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLInputElement>) => {
+    const transformString = useString();
     const [isChecked, setIsChecked] = useState<boolean>(false)
 
     const labelId = useMemo(() => {
-        return 'Label-' + props.name.replace(' ', '')
+        return transformString.getLabelUsing(props.name)
     }, [props.name])
 
     return (
@@ -21,12 +19,12 @@ export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLIn
                 className={"r:50% color:white@dark"}
                 type="checkbox"
                 ref={ref} id={labelId}
-                data-sd-name={`[${capitalizeFirstLetter(props.name)}]`}
+                data-sd-name={`[${transformString.capitalizeFirstLetter(props.name)}]`}
                 checked={isChecked}
                 onChange={({target}) => setIsChecked(target.checked)}
             />
             <label htmlFor={labelId} className={"color:white@dark m:0 p:0"}>
-                {capitalizeFirstLetter(props.name)}
+                {transformString.capitalizeFirstLetter(props.name)}
             </label>
         </div>
     )
