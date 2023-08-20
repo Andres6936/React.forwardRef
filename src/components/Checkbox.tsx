@@ -20,12 +20,12 @@ export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLIn
             <input
                 className={"r:50% color:white@dark"}
                 type="checkbox"
-                ref={ref}
+                ref={ref} id={labelId}
                 data-sd-name={`[${capitalizeFirstLetter(props.name)}]`}
                 checked={isChecked}
                 onChange={({target}) => setIsChecked(target.checked)}
             />
-            <label id={labelId} className={"color:white@dark m:0 p:0"}>
+            <label htmlFor={labelId} className={"color:white@dark m:0 p:0"}>
                 {capitalizeFirstLetter(props.name)}
             </label>
         </div>
