@@ -2,6 +2,7 @@ import {useMemo, useState} from 'react';
 import {DummyService} from './services/DummyService';
 import {useCheckboxGroup} from "./hooks/useCheckboxGroup";
 import {ChangeTheme} from "./components/ChangeTheme";
+import {LogHistory} from "./components/LogHistory";
 
 const TypesErrorMessage = Object.freeze({
     Empty_Message: 'Please write an message.',
@@ -44,12 +45,7 @@ function App() {
         setQueueMessages((prevState) => [response, ...prevState] as string[]);
     };
 
-    const formatHistory = () => {
-        return queueMessages.reduce((accumulator, current) => {
-            accumulator += current + '\n';
-            return accumulator;
-        }, '');
-    };
+
 
     return (
         <div
@@ -85,14 +81,7 @@ function App() {
                     </button>
                 </div>
 
-                <div className="flex flex:col">
-                    <label className={"color:white@dark mb:0.2em"}>Log History</label>
-                    <textarea
-                        className={"b:1px|solid|#CCC b:1px|solid|black@dark color:white@dark px:1em py:0.5em r:1em bg:gray-50@dark"}
-                        rows={5}
-                        value={formatHistory()}
-                        readOnly={true}/>
-                </div>
+                <LogHistory queueMessages={queueMessages}/>
             </div>
         </div>
     );
