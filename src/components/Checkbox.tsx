@@ -1,4 +1,4 @@
-import React, {ForwardedRef, useState} from "react";
+import React, {ForwardedRef, useMemo, useState} from "react";
 
 interface Props {
     name: string,
@@ -11,6 +11,10 @@ function capitalizeFirstLetter(value: string): string {
 export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLInputElement>) => {
     const [isChecked, setIsChecked] = useState<boolean>(false)
 
+    const labelId = useMemo(() => {
+        return 'Label-' + props.name.replace(' ', '')
+    }, [props.name])
+
     return (
         <div className={"flex gap:0.3em flex:row align-items:center"}>
             <input
@@ -21,7 +25,9 @@ export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLIn
                 checked={isChecked}
                 onChange={({target}) => setIsChecked(target.checked)}
             />
-            <label className={"color:white@dark m:0 p:0"}>{capitalizeFirstLetter(props.name)}</label>
+            <label id={labelId} className={"color:white@dark m:0 p:0"}>
+                {capitalizeFirstLetter(props.name)}
+            </label>
         </div>
     )
 })
