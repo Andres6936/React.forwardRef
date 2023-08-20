@@ -18,6 +18,7 @@ function App() {
 
     const onClearMessage = () => {
         setMessage('')
+        setQueueMessages([])
         setMessageIsInvalid(false)
     }
 
