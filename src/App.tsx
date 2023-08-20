@@ -51,7 +51,7 @@ function App() {
 
     return (
         <div
-            className="min-h:100vh flex justify-content:center align-items:center p:2em bg:gray-96 bg:gray-46@dark">
+            className="min-h:100vh box:border flex justify-content:center align-items:center p:2em bg:gray-96 bg:gray-46@dark">
             <ChangeTheme/>
 
             <div
