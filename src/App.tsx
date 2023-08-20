@@ -49,8 +49,19 @@ function App() {
 
     return (
         <div
-            className="min-h:100vh box:border flex justify-content:center align-items:center p:2em bg:gray-96 bg:gray-46@dark">
+            className="min-h:100vh box:border flex flex:col gap:4rem justify-content:center align-items:center p:2em bg:gray-96 bg:gray-46@dark">
             <ChangeTheme/>
+
+            <div
+                className={"bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:21rem flex flex:col"}>
+                <label className={"color:white@dark mb:0.2em"} htmlFor="">
+                    Add Checkbox
+                </label>
+                <input autoCorrect={"off"}
+                       className={"b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em px:1em py:0.5em color:white@dark bg:gray-50@dark"}
+                       type="text" value={"Movies, Space, Sports"}/>
+            </div>
+
 
             <div
                 className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:21rem">
