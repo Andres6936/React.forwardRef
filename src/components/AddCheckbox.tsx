@@ -31,10 +31,9 @@ export const AddCheckbox = (props: Props) => {
             .replace(' ', '')
             .split(',')
             .filter(item => item.length > 1)
+            .map(item => item.trim())
 
-        if (newCheckbox.length > props.checkbox.length) {
-            props.onAdd(newCheckbox)
-        }
+        props.onAdd(newCheckbox)
     }
 
     return (

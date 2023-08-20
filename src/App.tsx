@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react';
+import {useState} from 'react';
 import {DummyService} from './services/DummyService';
 import {useCheckboxGroup} from "./hooks/useCheckboxGroup";
 import {ChangeTheme} from "./components/ChangeTheme";
@@ -12,7 +12,7 @@ const TypesErrorMessage = Object.freeze({
 
 function App() {
     const [checkbox, setCheckbox] = useState<string[]>(['sport', 'movies', 'finance'])
-    const checkboxGroup = useCheckboxGroup(useMemo(() => checkbox, []))
+    const checkboxGroup = useCheckboxGroup(checkbox)
 
     const [errorMessage, setErrorMessage] = useState<string>('');
     const [messageIsInvalid, setMessageIsInvalid] = useState<boolean>(false);
