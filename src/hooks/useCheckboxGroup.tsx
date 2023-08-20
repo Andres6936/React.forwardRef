@@ -14,6 +14,14 @@ export const useCheckboxGroup = (checkbox: string[]) => {
         )
     }, [checkbox])
 
+    const uncheckedAll = () => {
+        for (let checkbox of refs.current) {
+            if (checkbox?.checked) {
+                checkbox.checked = false
+            }
+        }
+    }
+
     const concatCategory = (message: string) => {
         const category = refs.current
             .filter(ref => ref)
@@ -44,6 +52,7 @@ export const useCheckboxGroup = (checkbox: string[]) => {
     return {
         concatCategory,
         everyUnselected,
+        uncheckedAll,
         draw,
     }
 }

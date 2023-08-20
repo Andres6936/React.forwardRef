@@ -20,6 +20,7 @@ function App() {
         setMessage('')
         setQueueMessages([])
         setMessageIsInvalid(false)
+        checkboxGroup.uncheckedAll()
     }
 
     const onWriteMessage = async () => {
