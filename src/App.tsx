@@ -3,6 +3,7 @@ import {DummyService} from './services/DummyService';
 import {useCheckboxGroup} from "./hooks/useCheckboxGroup";
 import {ChangeTheme} from "./components/ChangeTheme";
 import {LogHistory} from "./components/LogHistory";
+import {AddCheckbox} from "./components/AddCheckbox";
 
 const TypesErrorMessage = Object.freeze({
     Empty_Message: 'Please write an message.',
@@ -10,7 +11,8 @@ const TypesErrorMessage = Object.freeze({
 });
 
 function App() {
-    const checkboxGroup = useCheckboxGroup(useMemo(() => ['sport', 'movies', 'finance'], []))
+    const [checkbox, setCheckbox] = useState<string[]>(['sport', 'movies', 'finance'])
+    const checkboxGroup = useCheckboxGroup(useMemo(() => checkbox, []))
 
     const [errorMessage, setErrorMessage] = useState<string>('');
     const [messageIsInvalid, setMessageIsInvalid] = useState<boolean>(false);
@@ -52,16 +54,7 @@ function App() {
             className="min-h:100vh box:border flex flex:col gap:4rem justify-content:center align-items:center p:2em bg:gray-96 bg:gray-46@dark">
             <ChangeTheme/>
 
-            <div
-                className={"bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:21rem flex flex:col"}>
-                <label className={"color:white@dark mb:0.2em"} htmlFor="">
-                    Add Checkbox
-                </label>
-                <input autoCorrect={"off"}
-                       className={"b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em px:1em py:0.5em color:white@dark bg:gray-50@dark"}
-                       type="text" value={"Movies, Space, Sports"}/>
-            </div>
-
+            <AddCheckbox checkbox={checkbox} onAdd={newCheckbox => setCheckbox(newCheckbox)}/>
 
             <div
                 className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:21rem">
