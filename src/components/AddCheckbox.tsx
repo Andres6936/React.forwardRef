@@ -38,7 +38,7 @@ export const AddCheckbox = (props: Props) => {
 
     return (
         <div
-            className={"bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:26rem flex flex:col"}>
+            className={"bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:full w:26rem@md flex flex:col"}>
             <label className={"color:white@dark mb:0.2em"} htmlFor="">
                 Add Checkbox
             </label>
