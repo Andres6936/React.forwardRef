@@ -4,6 +4,7 @@ import {useCheckboxGroup} from "./hooks/useCheckboxGroup";
 import {ChangeTheme} from "./components/ChangeTheme";
 import {LogHistory} from "./components/LogHistory";
 import {AddCheckbox} from "./components/AddCheckbox";
+import {Send} from "./icons/Send";
 
 const TypesErrorMessage = Object.freeze({
     Empty_Message: 'Please write an message.',
@@ -62,11 +63,19 @@ function App() {
 
                 <div className="flex flex:col mt:1em">
                     <label className={"color:white@dark mb:0.2em"}>Message</label>
-                    <input
-                        className={"b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em px:1em py:0.5em color:white@dark bg:gray-50@dark"}
-                        value={message}
-                        onChange={({target}) => setMessage(target.value)}
-                    />
+                    <div className="position:relative flex flex-row">
+                        <input
+                            className={"flex flex:1 b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em pl:1em pr:2.5rem py:0.8em color:white@dark bg:gray-50@dark"}
+                            value={message}
+                            onChange={({target}) => setMessage(target.value)}
+                        />
+                        <div
+                            className="position:absolute top:3 right:3 w:2rem h:2rem r:50% flex align-items:center justify-content:center b:none py:0.5em font:bold font-size:1em bg:blue bg:blue/.9:hover color:white"
+                            onClick={onWriteMessage}>
+                            <Send/>
+                        </div>
+                    </div>
+
                     <p className={messageIsInvalid ? "show m:0 p:0 color:red color:gold-80@dark" : "hidden"}>
                         {errorMessage}
                     </p>
@@ -77,11 +86,6 @@ function App() {
                         className="flex flex:1 align-items:center justify-content:center b:none py:0.5em font:bold font-size:1em rl:1.5em bg:red bg:red/.9:hover color:white"
                         onClick={onClearMessage}>
                         Clear
-                    </button>
-                    <button
-                        className="flex flex:1 align-items:center justify-content:center b:none py:0.5em font:bold font-size:1em rr:1.5em bg:blue bg:blue/.9:hover color:white"
-                        onClick={onWriteMessage}>
-                        Send
                     </button>
                 </div>
 
