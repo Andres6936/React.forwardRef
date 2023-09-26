@@ -14,7 +14,7 @@ export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLIn
     }, [props.name])
 
     return (
-        <div className={"flex gap:0.3em flex:row align-items:center"}>
+        <div className={"flex flex:1 gap:0.3em flex:row align-items:center"}>
             <input
                 className={"r:50% color:white@dark h:1rem w:1rem"}
                 type="checkbox"
