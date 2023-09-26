@@ -43,7 +43,7 @@ export const AddCheckbox = (props: Props) => {
                 Write comma-separated to create a new checkbox
             </label>
             <input autoCorrect={"off"} onChange={onChangeInput}
-                   className={"b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em px:1em py:0.5em color:white@dark bg:gray-50@dark font-size:1rem"}
+                   className={"b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em px:1em py:0.5em color:white@dark bg:gray-50@dark font-size:1rem color:#00000066 font:bold"}
                    type="text" value={value}/>
         </div>
     )

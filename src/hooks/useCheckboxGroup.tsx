@@ -38,7 +38,8 @@ export const useCheckboxGroup = (checkbox: string[]) => {
     }
 
     const draw = () => (
-        <div className="flex flex:row flex:wrap gap-x:2em gap-y:0.5rem align-items:center justify-content:start">
+        <div
+            className="flex flex:row flex:wrap gap-x:2em my:1.5rem gap-y:0.5rem align-items:center justify-content:start">
             {
                 elements.map((element, index) => (
                     <div
