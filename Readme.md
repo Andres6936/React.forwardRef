@@ -1,6 +1,8 @@
 ### Interface Initial
 
-Request to create an application with infinite Checkboxes, whose behavior is to be able to add Checkboxes just by editing a line of code, each Chekbox must be concatenated together with the message once the user enters a new one.
+Request to create an application with infinite Checkboxes, whose behavior is to be able to add Checkboxes
+just by editing a line of code, each Chekbox must be concatenated together with the message once the user enters a new
+one.
 
 It makes use of React hooks and references to create components dynamically.
 
@@ -20,10 +22,7 @@ useCheckboxGroup(useMemo(() => ['sport', 'movies', 'finance'], []))
 #### Screenshots
 
 <p align="center" float="left">
-  <img style="border-radius: 1em" alt="Start Image" src="./docs/Start.png" width="48%">
-  <img style="border-radius: 1em" alt="Middle Image" src="./docs/Middle.png" width="48%">
-  <img style="border-radius: 1em" alt="End Image" src="./docs/End.png" width="48%">
-  <img style="border-radius: 1em" alt="Start Image" src="./docs/Message.png" width="48%">
+  <img style="border-radius: 1em" alt="Start Image" src="./docs/Home.png" width="414">
 </p>
 
 
