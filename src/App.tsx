@@ -61,7 +61,7 @@ function App() {
                 className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:full w:26rem@md">
                 {checkboxGroup.draw()}
 
-                <div className="flex flex:col mt:1em">
+                <div className="flex flex:col my:1em">
                     <label className={"color:white@dark mb:0.2em"}>Message</label>
                     <div className="position:relative flex flex-row">
                         <input
@@ -81,15 +81,15 @@ function App() {
                     </p>
                 </div>
 
-                <div className="flex flex:row my:1em">
-                    <button
-                        className="flex flex:1 align-items:center justify-content:center b:none py:0.5em font:bold font-size:1em rl:1.5em bg:red bg:red/.9:hover color:white"
-                        onClick={onClearMessage}>
-                        Clear
-                    </button>
-                </div>
-
                 <LogHistory queueMessages={queueMessages}/>
+
+                <div className="flex flex:row">
+                    <a
+                        className="flex flex:1 align-items:center py:0.5em font:bold font-size:1em color:red opacity:0.7"
+                        onClick={onClearMessage}>
+                        Clear All
+                    </a>
+                </div>
             </div>
         </div>
     );
