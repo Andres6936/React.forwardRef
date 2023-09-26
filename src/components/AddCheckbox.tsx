@@ -38,12 +38,12 @@ export const AddCheckbox = (props: Props) => {
 
     return (
         <div
-            className={"bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:full w:26rem@md flex flex:col"}>
-            <label className={"color:white@dark mb:0.2em"} htmlFor="">
-                Add Checkbox
+            className={"flex flex:col my:1rem"}>
+            <label className={"color:white@dark mb:0.4em px:0.5rem opacity:0.7"} htmlFor="">
+                Write comma-separated to create a new checkbox
             </label>
             <input autoCorrect={"off"} onChange={onChangeInput}
-                   className={"b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em px:1em py:0.5em color:white@dark bg:gray-50@dark"}
+                   className={"b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em px:1em py:0.5em color:white@dark bg:gray-50@dark font-size:1rem"}
                    type="text" value={value}/>
         </div>
     )

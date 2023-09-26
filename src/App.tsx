@@ -55,14 +55,14 @@ function App() {
             className="min-h:100vh box:border flex flex:col gap:4rem justify-content:center align-items:center p:1rem p:2em@md bg:gray-96 bg:gray-46@dark">
             <ChangeTheme/>
 
-            <AddCheckbox checkbox={checkbox} onAdd={newCheckbox => setCheckbox(newCheckbox)}/>
-
             <div
-                className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:full w:26rem@md">
+                className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:full w:28rem@md">
+                <AddCheckbox checkbox={checkbox} onAdd={newCheckbox => setCheckbox(newCheckbox)}/>
+
                 {checkboxGroup.draw()}
 
                 <div className="flex flex:col my:1em">
-                    <label className={"color:white@dark mb:0.2em"}>Message</label>
+                    <label className={"color:white@dark mb:0.4em px:0.5rem opacity:0.7"}>Message</label>
                     <div className="position:relative flex flex-row">
                         <input
                             className={"flex flex:1 b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em pl:1em pr:2.5rem py:0.8em color:white@dark bg:gray-50@dark"}
@@ -85,7 +85,7 @@ function App() {
 
                 <div className="flex flex:row">
                     <a
-                        className="flex flex:1 align-items:center py:0.5em font:bold font-size:1em color:red opacity:0.7"
+                        className="flex flex:1 align-items:center py:0.5em font:bold font-size:1em color:red color:yellow-80@dark opacity:0.7 opacity:1@dark"
                         onClick={onClearMessage}>
                         Clear All
                     </a>
