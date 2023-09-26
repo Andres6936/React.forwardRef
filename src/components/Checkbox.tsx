@@ -16,7 +16,7 @@ export const Checkbox = React.forwardRef((props: Props, ref: ForwardedRef<HTMLIn
     return (
         <div className={"flex gap:0.3em flex:row align-items:center"}>
             <input
-                className={"r:50% color:white@dark"}
+                className={"r:50% color:white@dark h:1rem w:1rem"}
                 type="checkbox"
                 ref={ref} id={labelId}
                 data-sd-name={`[${transformString.capitalizeFirstLetter(props.name)}]`}
