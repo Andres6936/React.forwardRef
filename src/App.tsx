@@ -66,6 +66,13 @@ function App() {
             </section>
 
             <section className="flex flex:col flex:1 h:full gap:0.6rem py:0.7rem">
+                <div className="flex flex:col justify-content:end">
+                    <div className="flex flex-basis:50% justify-content:end pr:1rem align-items:end gap:0.2rem">
+                        <p className="bg:#FAE4CB p:0.8rem r:1rem">It's an evening. Lets so that</p>
+                        <span className="bg:#FAE4CB w:0.8rem h:0.8rem r:50%"></span>
+                    </div>
+                </div>
+
                 <div className="flex align-items:center justify-content:center">
                     <p className="text:center font-size:0.8rem font:semibold color:#828282">23:40</p>
                 </div>
