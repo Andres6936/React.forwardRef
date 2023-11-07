@@ -119,10 +119,15 @@ function App() {
                 </div>
             </section>
 
-            <section className="flex flex:col px:0.6rem py:0.6rem">
+            <section className="flex flex:col px:0.6rem py:0.6rem gap:0.4rem">
+                <div className="flex flex:col align-items:center justify-content:center">
+                    <span
+                        className="border:1px|solid|#CCC min-w:2.3rem min-h:2.3rem r:50% bg:white box-shadow:2|1|2|2|gray-90"></span>
+                </div>
+
                 <div className="flex flex:col bg:#F1F1F1 border:1px|solid|#CCC r:1rem">
                     <input type="text"
-                           className="w:full bg:#F1F1F1 px:0.6rem py:1rem border:0px|solid|#CCC r:1rem outline:none"
+                           className="w:full bg:#F1F1F1 px:0.6rem py:1rem border:0px|solid|#CCC r:1rem outline:none font:sans font-size:0.9rem"
                            placeholder="Message to Conference Meeting"/>
 
                     <div className="flex flex:row justify-content:between align-items:center px:0.6rem pb:0.4rem">
