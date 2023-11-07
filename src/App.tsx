@@ -1,10 +1,6 @@
 import {useState} from 'react';
 import {DummyService} from './services/DummyService';
 import {useCheckboxGroup} from "./hooks/useCheckboxGroup";
-import {ChangeTheme} from "./components/ChangeTheme";
-import {LogHistory} from "./components/LogHistory";
-import {AddCheckbox} from "./components/AddCheckbox";
-import {Send} from "./icons/Send";
 
 const TypesErrorMessage = Object.freeze({
     Empty_Message: 'Please write an message.',
@@ -49,49 +45,53 @@ function App() {
     };
 
 
-
     return (
-        <div
-            className="min-h:100vh box:border flex flex:col gap:4rem justify-content:center align-items:center p:1rem p:2em@md bg:gray-96 bg:gray-46@dark">
-            <ChangeTheme/>
+        <main className="min-h:100vh flex flex:col font:sans">
+            <section className="flex flex:col px:1rem py:0.8rem border-bottom:1px|solid|#CCC">
+                <div className="flex flex:row align-items:center gap:1rem">
+                    <h1 className="font-size:1rem">Conference Meeting</h1>
+                    <p className="bg:#EBEBEB color:#8D8D8D px:0.6rem py:0.2rem r:0.8rem font-size:0.9rem">4h left</p>
+                </div>
 
-            <div
-                className="bg:gray-90 bg:gray-40@dark b:1px|solid|#CCC b:1px|solid|gray-26@dark p:2em r:1rem box-shadow:4|4|3|gray-90 box-shadow:4|4|3|gray-48@dark w:full w:28rem@md">
-                <AddCheckbox checkbox={checkbox} onAdd={newCheckbox => setCheckbox(newCheckbox)}/>
+                <div className="flex flex:row pt:1rem">
+                    <div className="flex flex:col">
+                        <p className="font-size:2rem font:semibold">6:00</p>
+                        <p className="color:#8D8D8D">Sat, Dec 11</p>
+                    </div>
+                    <div className="flex flex:col">
+                        <p className="font-size:2rem font:semibold">7:00</p>
+                        <p className="color:#8D8D8D">Sat, Dec 11</p>
+                    </div>
+                </div>
+            </section>
 
-                {checkboxGroup.draw()}
+            <section className="flex flex:col flex:1 h:full">
 
-                <div className="flex flex:col my:1em">
-                    <label className={"color:white@dark mb:0.4em px:0.5rem opacity:0.7"}>Message</label>
-                    <div className="position:relative flex flex-row">
-                        <input
-                            className={"flex flex:1 b:1px|solid|#CCC b:1px|solid|black@dark r:1.5em pl:1em pr:2.5rem py:0.8em color:white@dark bg:gray-50@dark"}
-                            value={message}
-                            onChange={({target}) => setMessage(target.value)}
-                        />
-                        <div
-                            className="position:absolute top:3 right:3 w:2rem h:2rem r:50% flex align-items:center justify-content:center b:none py:0.5em font:bold font-size:1em bg:blue bg:blue/.9:hover color:white"
-                            onClick={onWriteMessage}>
-                            <Send/>
+            </section>
+
+            <section className="flex flex:col px:0.6rem py:0.6rem">
+                <div className="flex flex:col bg:#F1F1F1 border:1px|solid|#CCC r:1rem">
+                    <input type="text"
+                           className="w:full bg:#F1F1F1 px:0.6rem py:1rem border:0px|solid|#CCC r:1rem outline:none"
+                           placeholder="Message to Conference Meeting"/>
+
+                    <div className="flex flex:row justify-content:between align-items:center px:0.6rem pb:0.4rem">
+                        <div className="flex flex:row flex:1 gap:0.5rem">
+                            <span className="w:1.8rem h:1.8rem square bg:black r:0.5rem"></span>
+                            <span className="w:1.8rem h:1.8rem square bg:black r:0.5rem"></span>
+                            <span className="w:1.8rem h:1.8rem square bg:black r:0.5rem"></span>
+                        </div>
+
+                        <div className="flex flex:col flex:1">
+                            <button
+                                className="bg:black color:white font:bold border:1px|solid|black r:0.3rem py:0.5rem">Send
+                                now
+                            </button>
                         </div>
                     </div>
-
-                    <p className={messageIsInvalid ? "show m:0 p:0 color:red color:gold-80@dark" : "hidden"}>
-                        {errorMessage}
-                    </p>
                 </div>
-
-                <LogHistory queueMessages={queueMessages}/>
-
-                <div className="flex flex:row">
-                    <a
-                        className="flex flex:1 align-items:center py:0.5em font:bold font-size:1em color:red color:yellow-80@dark opacity:0.7 opacity:1@dark"
-                        onClick={onClearMessage}>
-                        Clear All
-                    </a>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
 
