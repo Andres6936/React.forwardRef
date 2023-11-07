@@ -66,7 +66,12 @@ function App() {
             </section>
 
             <section className="flex flex:col flex:1 h:full">
-
+                <div className="flex flex:col justify-content:end">
+                    <div className="flex flex-basis:50% justify-content:end pr:1rem align-items:end">
+                        <p className="bg:#FAE4CB p:0.8rem r:1rem">Hm... Let me think</p>
+                        <span className="bg:#FAE4CB w:0.8rem h:0.8rem r:50%"></span>
+                    </div>
+                </div>
             </section>
 
             <section className="flex flex:col px:0.6rem py:0.6rem">
