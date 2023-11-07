@@ -54,13 +54,13 @@ function App() {
                     <p className="bg:#EBEBEB color:#8D8D8D px:0.6rem py:0.2rem r:0.8rem font-size:0.9rem">4h left</p>
                 </div>
 
-                <div className="flex flex:row pt:1rem">
+                <div className="flex flex:row px:1rem pt:1rem gap:1rem">
                     <div className="flex flex:col">
-                        <p className="font-size:2rem font:semibold">6:00</p>
+                        <p className="font-size:2rem font:semibold text:center">6:00</p>
                         <p className="color:#8D8D8D">Sat, Dec 11</p>
                     </div>
                     <div className="flex flex:col">
-                        <p className="font-size:2rem font:semibold">7:00</p>
+                        <p className="font-size:2rem font:semibold text:center">7:00</p>
                         <p className="color:#8D8D8D">Sat, Dec 11</p>
                     </div>
                 </div>
