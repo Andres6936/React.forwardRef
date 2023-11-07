@@ -65,9 +65,18 @@ function App() {
                 </div>
             </section>
 
-            <section className="flex flex:col flex:1 h:full">
+            <section className="flex flex:col flex:1 h:full gap:0.6rem py:0.7rem">
+                <div className="flex flex:col justify-content:start">
+                    <div
+                        className="flex flex-basis:50% max-w:80% justify-content:start pl:1rem align-items:end gap:0.2rem">
+                        <span className="bg:green min-w:1.3rem min-h:1.3rem r:50%"></span>
+                        <p className="bg:#F2F2F2 p:0.8rem r:1rem">Where do we want to meet guys? I need to know
+                            before</p>
+                    </div>
+                </div>
+
                 <div className="flex flex:col justify-content:end">
-                    <div className="flex flex-basis:50% justify-content:end pr:1rem align-items:end">
+                    <div className="flex flex-basis:50% justify-content:end pr:1rem align-items:end gap:0.2rem">
                         <p className="bg:#FAE4CB p:0.8rem r:1rem">Hm... Let me think</p>
                         <span className="bg:#FAE4CB w:0.8rem h:0.8rem r:50%"></span>
                     </div>
