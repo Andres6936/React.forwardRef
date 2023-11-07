@@ -85,6 +85,31 @@ function App() {
                         <span className="bg:#FAE4CB w:0.8rem h:0.8rem r:50%"></span>
                     </div>
                 </div>
+
+                <div className="flex flex:col justify-content:start">
+                    <div
+                        className="flex flex-basis:50% max-w:80% justify-content:start pl:1rem align-items:end gap:0.2rem">
+                        <span className="bg:green min-w:1.3rem min-h:1.3rem r:50%"></span>
+                        <div className="bg:#F2F2F2 p:0.8rem r:1rem">
+                            <p>What do you want to eat?</p>
+
+                            <div className="flex flex:col gap:0.2rem mt:0.8rem">
+                                <div className="bg:white p:0.6rem r:0.6rem">
+                                    <p>Pizza</p>
+                                </div>
+
+                                <div className="bg:white p:0.6rem r:0.6rem">
+                                    <p>Burgers</p>
+                                </div>
+                            </div>
+
+                            <div className="flex flex:row justify-content:end gap:0.7rem mt:0.6rem">
+                                <p className="font-size:0.7rem color:#828282">8 votes</p>
+                                <p className="font-size:0.7rem color:#828282">Vote to see results</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section className="flex flex:col px:0.6rem py:0.6rem">
